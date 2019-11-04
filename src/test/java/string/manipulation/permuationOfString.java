@@ -4,42 +4,34 @@ import java.util.ArrayList;
 
 public class permuationOfString {
 
-    public static void permute(char[] ary, int startIndex, int endIndex) {
-        System.out.println("in permute " + String.valueOf(ary)+ ","+ startIndex +","+endIndex);
-        if(startIndex == endIndex){
-            System.out.println("rerturning " + String.valueOf(ary)+ ","+ startIndex +","+endIndex);
-
-            System.out.println(String.valueOf(ary));
+    public static void str_recursion(String str, int left, int right){
+        if(left==right){
+            System.out.println(str);
         }else{
-            for(int i=startIndex;i<=endIndex;i++) {
-                swap(ary, startIndex, i );
-                permute(ary, startIndex+1, endIndex);
-                swap2(ary, startIndex, i );
+            for(int i=left; i <= right ; i++) {
+                String swap = swapstr(str, left,i );
+                str_recursion(swap,left+1, right);
+
             }
         }
+
     }
 
-    public static void swap(char[] ary, int x, int y) {
-        System.out.println("in swap " + String.valueOf(ary)+ ","+ x +","+y);
 
-        char temp = ary[x];
-        ary[x] = ary[y];
-        ary[y] = temp;
+    public static String swapstr(String str, int i, int j){
+        char temp;
+        char[] str_arr = str.toCharArray();
+        temp = str_arr[i];
+        str_arr[i] = str_arr[j];
+        str_arr[j] = temp;
+        return String.valueOf(str_arr);
     }
 
-    public static void swap2(char[] ary, int x, int y) {
-        System.out.println("in swap2 " + String.valueOf(ary)+ ","+ x +","+y);
-
-        char temp = ary[x];
-        ary[x] = ary[y];
-        ary[y] = temp;
-    }
 
 
     public static void main(String[] args){
-        String str="ABC";
-        permute(str.toCharArray(),0,str.length()-1);
+
+        String str = "ABCDE";
+        str_recursion(str, 0, str.length()-1);
     }
-
-
 }
