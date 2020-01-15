@@ -1,4 +1,4 @@
-package recursion_Dynamic;
+package recursion_Dynamic_programming;
 
 public class recursion_stepsClimbing {
 
