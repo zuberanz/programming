@@ -31,7 +31,7 @@ public class permuationOfString {
 
     public static void main(String[] args){
 
-        String str = "ABCDE";
+        String str = "ABC";
         str_recursion(str, 0, str.length()-1);
     }
 }

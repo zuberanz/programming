@@ -91,24 +91,6 @@ He enters and leaves one valley.
 
     }
 
-    static int countingValleys_slickSolution(int n, String s) {
-
-        int v = 0;     // # of valleys
-        int lvl = 0;   // current level
-        for(char c : s.toCharArray()){
-            if(c == 'U') ++lvl;
-            if(c == 'D') --lvl;
-
-            // if we just came UP to sea level
-            if(lvl == 0 && c == 'U')
-                ++v;
-        }
-
-             System.out.println("Solution2 : num of valleys : "+v);
-            return v;
-
-    }
-
     /*
     * Found some smart or slick solutions by other submitters
     * though process : We only care about the number of valleys... So just figure out the number of times you came
@@ -116,12 +98,28 @@ He enters and leaves one valley.
     * This process really simplifies the problem solving process
     * */
 
+    static int countingValleys_slickSolution(int n, String s) {
+
+        int level = 0;
+        int count = 0;
+
+        char[] steps = s.toCharArray();
+        for (int i = 0; i < steps.length; i++) {
+
+            if (steps[i] == 'U') {
+                if (++level == 0) {
+                    count++;
+                }
+            } else {
+                level--;
+            }
+        }
+        System.out.println("Solution1 : num of valleys : "+count);
+        return count;
+    }
 
 
-
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
        /* Sample Input
@@ -130,6 +128,7 @@ He enters and leaves one valley.
         UDDDUDUU
 
         */
+        Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 

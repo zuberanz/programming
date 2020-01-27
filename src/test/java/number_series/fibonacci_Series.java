@@ -35,28 +35,31 @@ public class fibonacci_Series {
 
     }
 
+    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args){
 
-        System.out.println(" Enter the position for which u need the fibonacci value");
-        int n  = 35;
+       System.out.println(" Enter the position for which u need the fibonacci value");
+        int n  =sc.nextInt();
+
+
         long sysStarttime = System.currentTimeMillis();
         System.out.println(fibonacci_recursion(n));
         long sysEndTime = System.currentTimeMillis();
         long totaltime = (sysEndTime - sysStarttime) / 1000 ;
         System.out.println("The time taken in secs" + totaltime );
 
-        System.out.println(" Enter the position for which u need the fibonacci value");
+        System.out.println(" Enter the position for which u need the fibonacci value- memoized solution");
 
-        // n  = sc.nextInt();
+       n  =sc.nextInt();
          long sysStarttime1 = System.currentTimeMillis();
         System.out.println(fibonacci_recursion_memoized(n));
          long sysEndTime1 = System.currentTimeMillis();
          long totaltime1 = (sysEndTime1 - sysStarttime1) / 1000 ;
         System.out.println("The time taken in secs memoized" + totaltime1 );
         System.out.println();
-        for(long p : fn){
-        System.out.print(p + " ");}
+        /*for(long p : fn){
+        System.out.print(p + " ");}*/
 
 
 
