@@ -1,9 +1,8 @@
-package string.manipulation;
+package oops_concepts;
 
 import java.util.Scanner;
 
-public class work_rough {
-
+public class java_substring_lexographical_large_Small {
 
     public static String getSmallestAndLargest(String s, int k) {
         String smallest = "";
@@ -30,6 +29,9 @@ public class work_rough {
 
 
     public static void main(String[] args) {
+
+        //welcometojava
+        //3
         Scanner scan = new Scanner(System.in);
         String s = scan.next();
         int k = scan.nextInt();
@@ -38,4 +40,5 @@ public class work_rough {
         System.out.println(getSmallestAndLargest(s, k));
 
     }
+
 }
