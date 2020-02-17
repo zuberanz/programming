@@ -1,41 +1,55 @@
 package string.manipulation;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class work_rough {
 
+    // Computes sum all sub-array
+    public static long SubArraySum(int arr[], int n)
+    {
+        long result = 0,temp=0;
 
-    public static String getSmallestAndLargest(String s, int k) {
-        String smallest = "";
-        String largest = "";
-        java.util.ArrayList<String> substr = new java.util.ArrayList();
-        int len = s.length();
-        // Complete the function
-        // 'smallest' must be the lexicographically smallest substring of length 'k'
-        // 'largest' must be the lexicographically largest substring of length 'k'
-
-        for (int i = 0; i <= (len-k); i++) {
-            substr.add(s.substring(i, (i + k)));
+        // Pick starting point
+        for (int i = 0; i < n; i ++)
+        {
+            // Pick ending point
+            temp=0;
+            for (int j = i; j < n; j ++)
+            {
+                // sum subarray between current
+                // starting and ending points
+                temp+=arr[j];
+                result += temp ;
+            }
         }
-
-        String[] strArr = substr.toArray(new String[substr.size()]);
-        java.util.Arrays.sort(strArr);
-
-        smallest = strArr[0];
-        largest = strArr[strArr.length - 1];
-
-
-        return smallest + "\n" + largest;
+        return result ;
     }
 
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
-
-        System.out.println(getSmallestAndLargest(s, k));
-
+    /* Driver program to test above function */
+    public static void main(String[] args)
+    {
+        String inputString = "Hi Amod. Your registration number is AX1234 and hallticket number is XC876";
+        Pattern p = Pattern.compile("[A-Z]{2}\\d+");
+        Matcher m = p.matcher(inputString);
+        String [] values = new String[2];
+        int i=0;
+        Map<String,String> map = new HashMap<>();
+        while (m.find()) {
+            values[i++] = m.group();
+        }
+        if(inputString.indexOf("registration")<inputString.indexOf("hallticket")){
+            map.put("registration", values[0]);
+            map.put("hallticket", values[1]);
+        }
+        else{
+            map.put("registration", values[1]);
+            map.put("hallticket", values[0]);
+        }
+        for(Map.Entry e: map.entrySet()){
+            System.out.println(e.getKey() +" : "+e.getValue());
+        }
     }
 }

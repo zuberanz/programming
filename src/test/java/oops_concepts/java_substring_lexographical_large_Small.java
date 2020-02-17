@@ -1,6 +1,8 @@
 package oops_concepts;
 
 import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class java_substring_lexographical_large_Small {
 
@@ -27,6 +29,24 @@ public class java_substring_lexographical_large_Small {
         return smallest + "\n" + largest;
     }
 
+    public static String getSmallestAndLargest_sortedSet(String s, int k) {
+        String smallest = "";
+        String largest = "";
+        int len = s.length();
+
+        SortedSet<String> sets = new TreeSet();
+
+        for(int i=0 ; i <= (len-k); i++ ){
+
+            sets.add(s.substring(i,(i+k)));
+
+        }
+
+        smallest=sets.first();
+        largest=sets.last();
+
+        return smallest + "\n" + largest;
+    }
 
     public static void main(String[] args) {
 
@@ -38,6 +58,7 @@ public class java_substring_lexographical_large_Small {
         scan.close();
 
         System.out.println(getSmallestAndLargest(s, k));
+        System.out.println(getSmallestAndLargest_sortedSet(s, k));
 
     }
 
