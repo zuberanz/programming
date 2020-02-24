@@ -7,49 +7,44 @@ import java.util.regex.Pattern;
 
 public class work_rough {
 
-    // Computes sum all sub-array
-    public static long SubArraySum(int arr[], int n)
-    {
-        long result = 0,temp=0;
+    public static String reverse_stringBuffer(String str){
+        StringBuffer sb = new StringBuffer();
+        int len = str.length();
 
-        // Pick starting point
-        for (int i = 0; i < n; i ++)
-        {
-            // Pick ending point
-            temp=0;
-            for (int j = i; j < n; j ++)
-            {
-                // sum subarray between current
-                // starting and ending points
-                temp+=arr[j];
-                result += temp ;
-            }
+        for(int i=len-1; i>=0; i--){
+            sb.append(str.charAt(i));
         }
-        return result ;
+
+        return sb.toString();
+
     }
 
+    public static String reverse_r(String str){
+        StringBuffer sb = new StringBuffer();
+        int len = str.length();
+        HashMap<Character,Integer> sp_char = new HashMap<>();
+
+        for(int i=len-1; i>=0; i--){
+            Character c = str.charAt(i);
+            if(! Character.isLetterOrDigit(c)){
+                sp_char.put(c,i);
+            }
+            else{
+            sb.append(str.charAt(i));}
+        }
+
+        for(Map.Entry<Character,Integer> m : sp_char.entrySet()){
+            sb.insert(m.getValue(), m.getKey().toString());
+        }
+
+        return sb.toString();
+
+    }
     /* Driver program to test above function */
-    public static void main(String[] args)
-    {
-        String inputString = "Hi Amod. Your registration number is AX1234 and hallticket number is XC876";
-        Pattern p = Pattern.compile("[A-Z]{2}\\d+");
-        Matcher m = p.matcher(inputString);
-        String [] values = new String[2];
-        int i=0;
-        Map<String,String> map = new HashMap<>();
-        while (m.find()) {
-            values[i++] = m.group();
-        }
-        if(inputString.indexOf("registration")<inputString.indexOf("hallticket")){
-            map.put("registration", values[0]);
-            map.put("hallticket", values[1]);
-        }
-        else{
-            map.put("registration", values[1]);
-            map.put("hallticket", values[0]);
-        }
-        for(Map.Entry e: map.entrySet()){
-            System.out.println(e.getKey() +" : "+e.getValue());
-        }
+    public static void main(String[] args) {
+
+        String Str = "Rev@ersi$ng";
+
+        System.out.println(reverse_r(Str));
     }
 }

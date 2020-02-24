@@ -55,7 +55,7 @@ public class tree_learning {
 
     }
 
-    public static void InorderByStake(Node tree){
+    public static void InorderByStack(Node tree){
 
         if(tree == null){
             return;
@@ -79,7 +79,7 @@ public class tree_learning {
             //print the value of the node
             System.out.print(current.key + " ");
 
-            //now at this point we have traverse all the left nodes
+            //now at this point we have traversed all the left nodes
             //now its right subtree turn
             current = current.right;
         }
@@ -107,20 +107,17 @@ public class tree_learning {
 
         tree_learning tree =  new tree_learning();
 
-        tree.root = new Node(2);
+        tree.root = new Node(10);
 
-        tree.root.left = new Node(7);
-        tree.root.right = new Node(5);
+        tree.root.left = new Node(5);
+        tree.root.right = new Node(14);
 
         tree.root.left.left = new Node(2);
         tree.root.left.right = new Node(6);
 
-        tree.root.right.right = new Node(9);
+        tree.root.right.left = new Node(12);
+        tree.root.right.right = new Node(15);
 
-        tree.root.left.right.left = new Node(5);
-        tree.root.left.right.right = new Node(11);
-
-        tree.root.right.right.left = new Node(4);
 
 
         System.out.print("Pre Order Traversal : ");
@@ -134,7 +131,9 @@ public class tree_learning {
         System.out.println();
 
         System.out.println("In order traversal by using a stack");
-        InorderByStake(tree.root);
+        InorderByStack(tree.root);
+        System.out.println("In order traversal by using a stack");
+        InorderByStack(tree.root);
         System.out.println();
         System.out.println("Sum of all nodes in the tree : "+print_sum_of_all_nodes(tree.root));
         System.out.println();
