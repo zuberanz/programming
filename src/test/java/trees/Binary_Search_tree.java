@@ -99,7 +99,7 @@ public class Binary_Search_tree {
     public static void main(String[] args){
 
 
-        int[] arr = new int[]{10,5,15,2,8,13,19,6};
+        int[] arr = new int[]{10,8,6,15,5,12,9,14,7,16};
         Node root = null;
 
         System.out.println(" Constructing tree ITERATIVELY");
@@ -108,8 +108,24 @@ public class Binary_Search_tree {
         }
         System.out.println("pre-order traversal of the contructed tree ");
         tree_learning.pre_order_tree_print(root);
+        root = null;
 
-         root = null;
+
+
+        int[] arr1 = new int[]{10,15,12,14,8,9,6,5,7,16};
+
+
+        System.out.println(" Constructing tree ITERATIVELY");
+        for(int n : arr) {
+            root = construct_bst_iterative(root,n);
+        }
+        System.out.println("pre-order traversal of the contructed tree ");
+        tree_learning.pre_order_tree_print(root);
+
+
+
+
+         /*root = null;
         System.out.println(" Constructing tree Recursively");
         for(int n : arr) {
             root = construct_BST__recur(root,n);
@@ -124,7 +140,7 @@ public class Binary_Search_tree {
         System.out.printf("Searchin a key [ %d ] iteratively  in above BST : ",n);
         Search_A_Key_In_BST_iterative(root,n);
         System.out.printf("Searchin a key [ %d ] recursively  in above BST : ",n);
-        Search_A_Key_In_BST_recursively(root,n);
+        Search_A_Key_In_BST_recursively(root,n);*/
 
 
     }

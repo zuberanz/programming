@@ -79,16 +79,6 @@ public class Tree_Construction {
     }
 
 
-    int search(int[] in, int start_index, int end_index, int value){
-        int i=0;
-        for( i = start_index; i <= end_index; i++){
-            if(in[i] ==  value){
-                return i;
-            }
-        }
-        return i;
-    }
-
 
 
 

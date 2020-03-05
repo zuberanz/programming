@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.Stack;
+
 public class Size_of_Binary_Tree {
 
 
@@ -12,6 +14,31 @@ public class Size_of_Binary_Tree {
             return (size_of_tree(node.left)) + 1 + size_of_tree(node.right);
         }
     }
+
+
+    public static int size_of_tree_iterative(Node root){
+        int size=0;
+        Node current;
+        Stack<Node>  s = new Stack<>();
+        s.push(root);
+        while(! s.isEmpty()){
+
+            current = s.pop();
+            size++;
+            if(current.left!=null){
+                s.push(current.left);
+            }
+            if(current.right!=null){
+                s.push(current.right);
+            }
+        }
+
+        return size;
+
+    }
+
+
+
 
 
 
@@ -33,6 +60,8 @@ public class Size_of_Binary_Tree {
         tree_learning.pre_order_tree_print(tree.root);
 
         System.out.println("size of the tree : "+size_of_tree(tree.root));
+        System.out.println("size of the tree : "+size_of_tree_iterative(tree.root));
+
 
     }
 }

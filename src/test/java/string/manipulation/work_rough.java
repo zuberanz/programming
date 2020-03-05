@@ -1,50 +1,42 @@
 package string.manipulation;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class work_rough {
 
-    public static String reverse_stringBuffer(String str){
-        StringBuffer sb = new StringBuffer();
-        int len = str.length();
-
-        for(int i=len-1; i>=0; i--){
-            sb.append(str.charAt(i));
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> hash = new HashMap<>();
+        int[] ans = new int[2];
+        for(int i=0 ; i <nums.length ;i++){
+            hash.put(nums[i],i);
         }
-
-        return sb.toString();
-
-    }
-
-    public static String reverse_r(String str){
-        StringBuffer sb = new StringBuffer();
-        int len = str.length();
-        HashMap<Character,Integer> sp_char = new HashMap<>();
-
-        for(int i=len-1; i>=0; i--){
-            Character c = str.charAt(i);
-            if(! Character.isLetterOrDigit(c)){
-                sp_char.put(c,i);
+        int j;
+        for(int i=0 ; i <nums.length ;i++){
+            j = target - nums[i];
+            if(j<1 || nums[i]==j){
+                continue;
             }
-            else{
-            sb.append(str.charAt(i));}
+            if(hash.containsKey(j)){
+                ans[0]=i;
+                ans[1]=hash.get(j);
+                break;
+            }
+
         }
 
-        for(Map.Entry<Character,Integer> m : sp_char.entrySet()){
-            sb.insert(m.getValue(), m.getKey().toString());
-        }
-
-        return sb.toString();
-
+        return ans;
     }
+
     /* Driver program to test above function */
     public static void main(String[] args) {
 
-        String Str = "Rev@ersi$ng";
+        int[] arr = new int[] {3,2,4};
 
-        System.out.println(reverse_r(Str));
+        arr = twoSum(arr,6);
+
     }
 }

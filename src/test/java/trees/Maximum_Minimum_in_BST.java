@@ -9,12 +9,11 @@ public class Maximum_Minimum_in_BST {
             return null;
         }
 
-        while(root != null){
-            current=root;
+        while(root.left != null){
             root=root.left;
         }
 
-        System.out.println("Minimum Element in the tree : "+current.key);
+        System.out.println("Minimum Element in the tree : "+root.key);
         return current;
 
     }
@@ -42,12 +41,12 @@ public class Maximum_Minimum_in_BST {
             return null;
         }
 
-        while(root != null){
-            current=root;
+        while(root.right != null){
+
             root=root.right;
         }
 
-        System.out.println("Maximum Element in the tree : "+current.key);
+        System.out.println("Maximum Element in the tree : "+root.key);
         return current;
 
     }

@@ -38,10 +38,28 @@ public class tree_traversals_stack {
 
 
     }
-        public static void preorder_traversal_stack(Node tree){
 
+    public static void pre_Order_1_Stack(Node root){
 
+        if(root==null){
+            return;
+        }
+        Stack<Node> s1 = new Stack<>();
+        s1.push(root);
+        while(! s1.empty()){
+
+            Node temp = s1.pop();
+            System.out.println(temp.key+" ");
+            if(temp.right != null){
+                s1.push(temp.right);
             }
+            if(temp.left != null){
+                s1.push(temp.left);
+            }
+        }
+
+
+    }
 
     public static void postOrder_traversal_2stacks(Node tree){
         if(tree==null){

@@ -18,13 +18,6 @@ public class BST_Node_Deletion {
             return null;
         }
 
-        //if tree has only one element and same node to be deleted
-        if(root.key==val){
-            root = null;
-            return null;
-        }
-
-
         //find the node which has to be deleted and also keep the reference of parent
         Node current = root;
         Node parent =  current;
@@ -105,7 +98,7 @@ public class BST_Node_Deletion {
         System.out.println("Tree before deletion of node");
         tree_learning.pre_order_tree_print(root);
 
-        int n = 15;
+        int n = 10;
         root = BST_DeleteNode(root, n);
 
         System.out.println("Tree after deletion of node " +n);
